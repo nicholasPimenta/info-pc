@@ -1,28 +1,15 @@
-import React, { useContext, ChangeEvent, useState, useEffect } from "react";
-import { CartContext } from "../context/CartContext";
-import { Product } from "../context/CartContext";
-
-const products: Product[] = [
-  { id: 1, name: "Notebook A", price: 3500, imageUrl: "link_da_imagem_a" },
-  { id: 2, name: "Notebook B", price: 4500, imageUrl: "link_da_imagem_b" },
-  { id: 3, name: "Notebook C", price: 5500, imageUrl: "link_da_imagem_c" },
-  { id: 4, name: "Placa de Vídeo X", price: 2000, imageUrl: "link_da_imagem_x" },
-  { id: 5, name: "Placa de Vídeo Y", price: 2500, imageUrl: "link_da_imagem_y" },
-  { id: 6, name: "Processador Z", price: 1500, imageUrl: "link_da_imagem_z" },
-];
-
-const getRandomProducts = (count: number) => {
-  const shuffled = [...products].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
-};
+import React, { useContext, ChangeEvent, useEffect, useState } from "react";
+import { CartContext, Product } from "../context/CartContext";
+import { simplifiedProducts, getRandomProducts } from "../utils/ProductsData"; // Importando a lista simplificada
 
 const Cart: React.FC = () => {
   const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
-  const [randomProducts, setRandomProducts] = useState<Product[]>([]);
 
-  useEffect(() => {
-    setRandomProducts(getRandomProducts(5));
-  }, []);
+    const [randomProducts, setRandomProducts] = useState<Omit<Product, "description" | "category">[]>([]);
+
+    useEffect(() => {
+      setRandomProducts(getRandomProducts(simplifiedProducts, 6));
+    }, []);
 
   const handleQuantityChange = (e: ChangeEvent<HTMLInputElement>, id: number) => {
     const newQuantity = Number(e.target.value);
@@ -77,13 +64,13 @@ const Cart: React.FC = () => {
       <h3 className="my-4">Confira outros produtos</h3>
       <div id="randomProductsCarousel" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
-          {randomProducts.reduce((acc, product, index) => {
+          {randomProducts.reduce((acc: Omit<Product, "description" | "category">[][], product, index) => {
             if (index % 3 === 0) {
               acc.push([]);
             }
             acc[acc.length - 1].push(product);
             return acc;
-          }, [] as Product[][]).map((group, slideIndex) => (
+          }, []).map((group, slideIndex) => (
             <div key={slideIndex} className={`carousel-item ${slideIndex === 0 ? "active" : ""}`}>
               <div className="d-flex justify-content-center">
                 {group.map((product) => (
