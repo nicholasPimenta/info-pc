@@ -1,0 +1,21 @@
+/* Reset básico */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos globais de fonte */
+body {
+  font-family: Arial, sans-serif; /* Ou a fonte que você preferir */
+  line-height: 1.6;
+  background-color: #f8f9fa; /* Cor de fundo leve (pode ser ajustada) */
+}
+
+/* Remover o comportamento padrão de links */
+a {
+  text-decoration: none; /* Remover underline */
+  color: inherit; /* Manter a cor do texto do link igual ao normal */
+}

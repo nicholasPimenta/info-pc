@@ -15,7 +15,9 @@ const Categories: React.FC<CategoriesProps> = ({ setCategory }) => {
   return (
     <div className="container text-center my-4">
       <h3>Filtrar por Categoria</h3>
-      <div className="btn-group">
+      
+      {/* Container responsivo */}
+      <div className="d-grid gap-2 d-sm-flex justify-content-center">
         <button
           className={`btn ${selectedCategory === null ? "btn-primary" : "btn-outline-primary"}`}
           onClick={() => handleCategoryClick(null)}

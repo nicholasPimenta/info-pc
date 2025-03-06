@@ -27,14 +27,14 @@ const Cart: React.FC = () => {
 
   return (
     <div className="container my-4">
-      <h2>Carrinho de Compras</h2>
+      <h2 className="text-center text-md-start">Carrinho de Compras</h2>
       {cart.length === 0 ? (
         <p>Seu carrinho está vazio.</p>
       ) : (
         <>
           <div className="list-group mb-4">
             {cart.map((item) => (
-              <div key={item.id} className="list-group-item d-flex align-items-center justify-content-between border p-3 mb-2">
+              <div key={item.id} className="list-group-item d-flex align-items-center justify-content-between border rounded-3 shadow-sm p-3 mb-2">
                 <div>
                   <strong>{item.name}</strong> - R$ {item.price} <br />
                   Quantidade:
@@ -60,8 +60,8 @@ const Cart: React.FC = () => {
         </>
       )}
 
-      {/* Carrossel de Produtos Aleatórios */}
-      <h3 className="my-4">Confira outros produtos</h3>
+       {/* Carrossel de Produtos Aleatórios */}
+       <h3 className="my-4 text-center text-md-start">Confira outros produtos</h3>
       <div id="randomProductsCarousel" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           {randomProducts.reduce((acc: Omit<Product, "description" | "category">[][], product, index) => {
@@ -72,9 +72,9 @@ const Cart: React.FC = () => {
             return acc;
           }, []).map((group, slideIndex) => (
             <div key={slideIndex} className={`carousel-item ${slideIndex === 0 ? "active" : ""}`}>
-              <div className="d-flex justify-content-center">
+              <div className="d-flex justify-content-center flex-wrap flex-md-nowrap">
                 {group.map((product) => (
-                  <div key={product.id} className="card mx-2" style={{ width: "18rem" }}>
+                  <div key={product.id} className="card mx-2 mb-3" style={{ width: "18rem" }}>
                     <img src={product.imageUrl} className="card-img-top" alt={product.name} />
                     <div className="card-body">
                       <h5 className="card-title">{product.name}</h5>
