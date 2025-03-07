@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Products from "../components/Products";
 import Contact from "../components/Contact";
+import Products from "../components/Products";
 import Categories from "../components/Categories";
 import InfoSection from "../components/InfoSection";
 

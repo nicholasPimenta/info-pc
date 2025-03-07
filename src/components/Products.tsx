@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { CartContext } from "../context/CartContext";
 import { allProducts } from "../utils/ProductsData";
+import { CartContext } from "../context/CartContext";
 
 interface ProductsProps {
   selectedCategory: string | null;
@@ -25,7 +25,9 @@ const Products: React.FC<ProductsProps> = ({ selectedCategory }) => {
           style={{ width: "100%", maxHeight: "400px", objectFit: "cover" }}
         />
         <h3 className="my-3">Promoção Especial - Só Hoje!</h3>
-        <p>Descontos imperdíveis em produtos de informática! Aproveite agora.</p>
+        <p>
+          Descontos imperdíveis em produtos de informática! Aproveite agora.
+        </p>
       </div>
 
       {/* Lista de Produtos */}
@@ -45,9 +47,22 @@ const Products: React.FC<ProductsProps> = ({ selectedCategory }) => {
                 />
                 <div className="card-body">
                   <h5 className="card-title">{product.name}</h5>
-                  <p className="card-text">{product.description}</p>
+                  <p
+                    className="card-text"
+                    style={{
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 3,
+                      overflow: "hidden",
+                    }}
+                  >
+                    {product.description}
+                  </p>
                   <p className="card-text">Preço: R$ {product.price}</p>
-                  <button className="btn btn-primary" onClick={() => addToCart(product)}>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => addToCart(product)}
+                  >
                     Adicionar ao Carrinho
                   </button>
                 </div>

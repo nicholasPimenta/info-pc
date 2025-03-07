@@ -1,15 +1,14 @@
-import React, { useContext, ChangeEvent, useEffect, useState } from "react";
 import { CartContext, Product } from "../context/CartContext";
+import React, { useContext, ChangeEvent, useEffect, useState } from "react";
 import { simplifiedProducts, getRandomProducts } from "../utils/ProductsData"; // Importando a lista simplificada
 
 const Cart: React.FC = () => {
   const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
+  const [randomProducts, setRandomProducts] = useState<Omit<Product, "description" | "category">[]>([]);
 
-    const [randomProducts, setRandomProducts] = useState<Omit<Product, "description" | "category">[]>([]);
-
-    useEffect(() => {
-      setRandomProducts(getRandomProducts(simplifiedProducts, 6));
-    }, []);
+  useEffect(() => {
+    setRandomProducts(getRandomProducts(simplifiedProducts, 6));
+  }, []);
 
   const handleQuantityChange = (e: ChangeEvent<HTMLInputElement>, id: number) => {
     const newQuantity = Number(e.target.value);
@@ -60,8 +59,8 @@ const Cart: React.FC = () => {
         </>
       )}
 
-       {/* Carrossel de Produtos Aleatórios */}
-       <h3 className="my-4 text-center text-md-start">Confira outros produtos</h3>
+      {/* Carrossel de Produtos Aleatórios */}
+      <h3 className="my-4 text-center text-md-start">Confira outros produtos</h3>
       <div id="randomProductsCarousel" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           {randomProducts.reduce((acc: Omit<Product, "description" | "category">[][], product, index) => {
