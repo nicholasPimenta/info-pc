@@ -119,7 +119,7 @@ const Cart: React.FC = () => {
                       />
                       <div className="card-body d-flex flex-column">
                         <h5 className="card-title">{product.name}</h5>
-                        {/* Novo container para manter preço e botão alinhados */}
+                        
                         <div className="mt-auto">
                           <p className="card-text">R$ {product.price}</p>
                           <button className="btn btn-primary w-100">
