@@ -11,7 +11,7 @@ const Contact: React.FC = () => {
         <div className="row text-center">
           <div className="col-md-6">
             <h5>Email:</h5>
-            <p>contato@loja-informatica.com.br</p>
+            <p>contato@infoPC.com.br</p>
           </div>
           <div className="col-md-6">
             <h5>Telefone:</h5>

@@ -10,7 +10,6 @@ const Home: React.FC = () => {
   return (
     <>
       <div className="container my-4">
-        <h1>Bem-vindo à Loja de Informática</h1>
         <Categories setCategory={setSelectedCategory} />
         <Products selectedCategory={selectedCategory} />
         <InfoSection />

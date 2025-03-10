@@ -19,15 +19,18 @@ const Products: React.FC<ProductsProps> = ({ selectedCategory }) => {
       {/* Pôster promocional */}
       <div className="promo-banner text-center mb-5">
         <img
-          src="url-do-poster-promocional.jpg"
+          src="./public/Banner InfoPC.png"
           alt="Promoção Especial!"
           className="img-fluid"
-          style={{ width: "100%", maxHeight: "400px", objectFit: "cover" }}
+          style={{
+            width: "100%",
+            maxWidth: "1920px",
+            maxHeight: "400px",
+            objectFit: "cover",
+            display: "block",
+            margin: "0 auto",
+          }}
         />
-        <h3 className="my-3">Promoção Especial - Só Hoje!</h3>
-        <p>
-          Descontos imperdíveis em produtos de informática! Aproveite agora.
-        </p>
       </div>
 
       {/* Lista de Produtos */}
@@ -37,18 +40,22 @@ const Products: React.FC<ProductsProps> = ({ selectedCategory }) => {
       ) : (
         <div className="row">
           {filteredProducts.map((product) => (
-            <div key={product.id} className="col-md-4 mb-4">
-              <div className="card h-100">
+            <div key={product.id} className="col-12 col-md-6 col-lg-4 mb-4">
+              <div className="card h-100 d-flex flex-column">
                 <img
                   src={product.imageUrl}
                   alt={product.name}
-                  className="card-img-top"
-                  style={{ height: "200px", objectFit: "contain" }}
+                  className="card-img-top mx-auto d-block"
+                  style={{
+                    width: "200px",
+                    height: "200px",
+                    objectFit: "contain",
+                  }}
                 />
-                <div className="card-body">
+                <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{product.name}</h5>
                   <p
-                    className="card-text"
+                    className="card-text flex-grow-1"
                     style={{
                       display: "-webkit-box",
                       WebkitBoxOrient: "vertical",
@@ -60,7 +67,7 @@ const Products: React.FC<ProductsProps> = ({ selectedCategory }) => {
                   </p>
                   <p className="card-text">Preço: R$ {product.price}</p>
                   <button
-                    className="btn btn-primary"
+                    className="btn btn-primary mt-auto"
                     onClick={() => addToCart(product)}
                   >
                     Adicionar ao Carrinho

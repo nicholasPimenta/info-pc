@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
+import { LuComputer } from 'react-icons/lu';
 
 const Header: React.FC = () => {
   const { cartCount } = useContext(CartContext); // Acessando a quantidade de itens no carrinho
@@ -9,8 +10,8 @@ const Header: React.FC = () => {
     <nav className="navbar navbar-dark bg-dark px-3 d-flex justify-content-between align-items-center">
       {/* Logo da Loja (Agora é um link para a Página Inicial) */}
       <Link to="/" className="navbar-brand">
-        <i className="fas fa-laptop-house me-2"></i> {/* Ícone da Loja */}
-        Loja de Informática
+        <LuComputer /> {/* Ícone da Loja */}
+        InfoPC
       </Link>
 
       {/* Aba do Carrinho */}
