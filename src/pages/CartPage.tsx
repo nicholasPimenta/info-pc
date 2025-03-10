@@ -104,8 +104,8 @@ const Cart: React.FC = () => {
                   {group.map((product) => (
                     <div
                       key={product.id}
-                      className="card mx-2 mb-3"
-                      style={{ width: "18rem" }}
+                      className="card mx-2 mb-3 d-flex flex-column"
+                      style={{ width: "18rem", minHeight: "350px" }}
                     >
                       <img
                         src={product.imageUrl}
@@ -117,12 +117,15 @@ const Cart: React.FC = () => {
                           objectFit: "contain",
                         }}
                       />
-                      <div className="card-body">
+                      <div className="card-body d-flex flex-column">
                         <h5 className="card-title">{product.name}</h5>
-                        <p className="card-text">R$ {product.price}</p>
-                        <button className="btn btn-primary">
-                          Adicionar ao Carrinho
-                        </button>
+                        {/* Novo container para manter preço e botão alinhados */}
+                        <div className="mt-auto">
+                          <p className="card-text">R$ {product.price}</p>
+                          <button className="btn btn-primary w-100">
+                            Adicionar ao Carrinho
+                          </button>
+                        </div>
                       </div>
                     </div>
                   ))}
