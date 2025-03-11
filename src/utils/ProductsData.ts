@@ -22,7 +22,7 @@ export const allProducts: Product[] = [
     imageUrl,
   }));
   
-  export const getRandomProducts = (simplifiedProducts: Omit<Product, "description" | "category">[], count: number): Product[] => {
+  export const getRandomProducts = (count: number): Product[] => {
     const shuffled = [...allProducts].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, count);
   };

@@ -1,6 +1,6 @@
 import { CartContext, Product } from "../context/CartContext";
 import React, { useContext, ChangeEvent, useEffect, useState } from "react";
-import { simplifiedProducts, getRandomProducts } from "../utils/ProductsData"; // Importando a lista simplificada
+import { getRandomProducts } from "../utils/ProductsData"; // Importando a lista simplificada
 
 const Cart: React.FC = () => {
   const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
@@ -9,7 +9,7 @@ const Cart: React.FC = () => {
   >([]);
 
   useEffect(() => {
-    setRandomProducts(getRandomProducts(simplifiedProducts, 6));
+    setRandomProducts(getRandomProducts(6));
   }, []);
 
   const handleQuantityChange = (
