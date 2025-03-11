@@ -19,7 +19,7 @@ const Products: React.FC<ProductsProps> = ({ selectedCategory }) => {
       {/* Pôster promocional */}
       <div className="promo-banner text-center mb-5">
         <img
-          src="./public/Banner InfoPC.png"
+          src="/Banner InfoPC.png"
           alt="Promoção Especial!"
           className="img-fluid"
           style={{
