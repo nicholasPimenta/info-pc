@@ -9,7 +9,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <div className="container my-4">
+      <div className="my-4">
         <Categories setCategory={setSelectedCategory} />
         <Products selectedCategory={selectedCategory} />
         <InfoSection />

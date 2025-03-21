@@ -1,6 +1,7 @@
-import { CartContext, Product } from "../context/CartContext";
-import React, { useContext, ChangeEvent, useEffect, useState } from "react";
+import { FaMinus, FaPlus } from "react-icons/fa";
 import { getRandomProducts } from "../utils/ProductsData"; // Importando a lista simplificada
+import { CartContext, Product } from "../context/CartContext";
+import React, { useContext, useEffect, useState } from "react";
 
 const Cart: React.FC = () => {
   const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
@@ -12,11 +13,8 @@ const Cart: React.FC = () => {
     setRandomProducts(getRandomProducts(6));
   }, []);
 
-  const handleQuantityChange = (
-    e: ChangeEvent<HTMLInputElement>,
-    id: number
-  ) => {
-    const newQuantity = Number(e.target.value);
+  const handleQuantityChange = (id: number, quantity: number | undefined) => {
+    const newQuantity = quantity ?? 1; // Garante que sempre há um número válido
     if (newQuantity >= 1) {
       updateQuantity(id, newQuantity);
     }
@@ -40,18 +38,31 @@ const Cart: React.FC = () => {
             {cart.map((item) => (
               <div
                 key={item.id}
-                className="list-group-item d-flex align-items-center justify-content-between border rounded-3 shadow-sm p-3 mb-2"
+                className="list-group-item d-flex align-items-center justify-content-between border rounded-3 shadow-sm p-2 p-md-3 mb-2"
               >
                 <div>
                   <strong>{item.name}</strong> - R$ {item.price} <br />
+                  <div className="d-flex align-items-center mt-2">
                   Quantidade:
-                  <input
-                    type="number"
-                    value={item.quantity}
-                    min="1"
-                    style={{ width: "60px", marginLeft: "10px" }}
-                    onChange={(e) => handleQuantityChange(e, item.id)}
-                  />
+                    <button
+                      className="btn btn-sm me-2"
+                      onClick={() =>
+                        handleQuantityChange(item.id, item.quantity - 1)
+                      }
+                      disabled={item.quantity <= 1}
+                    >
+                      <FaMinus />
+                    </button>
+                    <span className="fw-bold">{item.quantity}</span>
+                    <button
+                      className="btn btn-sm ms-2"
+                      onClick={() =>
+                        handleQuantityChange(item.id, item.quantity + 1)
+                      }
+                    >
+                      <FaPlus />
+                    </button>
+                  </div>
                 </div>
                 <button
                   className="btn btn-danger"
@@ -63,7 +74,7 @@ const Cart: React.FC = () => {
             ))}
           </div>
 
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between align-items-center">
             <h4>Total: R$ {getTotal().toFixed(2)}</h4>
             <button className="btn btn-success">Finalizar Compra</button>
           </div>
@@ -119,7 +130,7 @@ const Cart: React.FC = () => {
                       />
                       <div className="card-body d-flex flex-column">
                         <h5 className="card-title">{product.name}</h5>
-                        
+
                         <div className="mt-auto">
                           <p className="card-text">R$ {product.price}</p>
                           <button className="btn btn-primary w-100">

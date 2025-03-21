@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../context/CartContext';
+import React, { useContext } from 'react';
 import { LuComputer } from 'react-icons/lu';
+import { CartContext } from '../context/CartContext';
 
 const Header: React.FC = () => {
   const { cartCount } = useContext(CartContext); // Acessando a quantidade de itens no carrinho

@@ -4,7 +4,7 @@ import { FaTruck, FaShieldAlt } from "react-icons/fa";
 
 const InfoSection: React.FC = () => {
   return (
-    <div className="bg-dark text-white py-4 rounded-4 shadow-lg">
+    <div className="bg-dark text-white py-4 shadow-lg">
       <div className="container text-center">
         <div className="row">
           {/* Frete Grátis */}
