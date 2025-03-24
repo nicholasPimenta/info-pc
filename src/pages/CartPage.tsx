@@ -45,7 +45,7 @@ const Cart: React.FC = () => {
                   <div className="d-flex align-items-center mt-2">
                   Quantidade:
                     <button
-                      className="btn btn-sm me-2"
+                      className="btn btn-sm me-2 border-0"
                       onClick={() =>
                         handleQuantityChange(item.id, item.quantity - 1)
                       }
@@ -55,7 +55,7 @@ const Cart: React.FC = () => {
                     </button>
                     <span className="fw-bold">{item.quantity}</span>
                     <button
-                      className="btn btn-sm ms-2"
+                      className="btn btn-sm ms-2 border-0"
                       onClick={() =>
                         handleQuantityChange(item.id, item.quantity + 1)
                       }
