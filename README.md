@@ -1,50 +1,61 @@
-# React + TypeScript + Vite
+# 🖥️ Loja de Informática
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo à **Loja de Informática**, um projeto desenvolvido em **React.js** com **Bootstrap 5** para simular uma loja online de produtos de tecnologia. O projeto inclui uma página inicial com produtos e uma página de carrinho funcional, proporcionando uma experiência intuitiva e fluída para o usuário.
 
-Currently, two official plugins are available:
+## 🚀 Funcionalidades Principais
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 📌 Página Inicial
+- Exibe uma lista de **12 produtos** divididos em **notebooks, placas de vídeo e processadores**.
+- Cada produto tem **nome, imagem, preço e descrição resumida**.
+- Botão **"Adicionar ao Carrinho"** para incluir produtos na compra.
+- **Filtros por categoria** para facilitar a navegação.
+- **Destaques informativos** sobre vantagens da loja (frete grátis, garantia, etc.).
 
-## Expanding the ESLint configuration
+### 🛒 Página do Carrinho
+- Exibe os **produtos adicionados ao carrinho** com **imagem, nome, preço e quantidade**.
+- Permite **alterar a quantidade** de cada item no carrinho.
+- Botão para **remover itens** do carrinho.
+- Cálculo automático do **total da compra**.
+- Produtos recomendados exibidos na página através de um **carrossel de produtos aleatórios**.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🔧 Tecnologias Utilizadas
+- **React.js** (Vite)
+- **TypeScript**
+- **Bootstrap 5**
+- **Context API** para gerenciamento do carrinho
+- **LocalStorage** para persistência do carrinho
+- **Vercel** para deploy
 
-- Configure the top-level `parserOptions` property like this:
+## 📦 Instalação e Execução
+Para rodar o projeto localmente, siga os passos abaixo:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/nicholasPimenta/info-pc.git
+   ```
+2. Acesse a pasta do projeto:
+   ```sh
+   cd info-pc
+   ```
+3. Instale as dependências:
+   ```sh
+   npm install
+   ```
+4. Execute o projeto:
+   ```sh
+   npm run dev
+   ```
+5. Acesse no navegador:
+   ```sh
+   http://localhost:5173
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🌐 Deploy
+O projeto está hospedado na **Vercel** e pode ser acessado através do seguinte link:
+[🔗 Loja de Informática - Deploy](https://info-pc.vercel.app)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 📜 Licença
+Este projeto foi desenvolvido para fins de aprendizado e portfólio. Sinta-se à vontade para explorar o código e adaptá-lo conforme necessário.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+---
+Desenvolvido por **Nicholas Pimenta** 🚀
