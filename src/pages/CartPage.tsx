@@ -4,7 +4,7 @@ import { CartContext, Product } from "../context/CartContext";
 import React, { useContext, useEffect, useState } from "react";
 
 const Cart: React.FC = () => {
-  const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
+  const { cart, removeFromCart, updateQuantity, addToCart } = useContext(CartContext);
   const [randomProducts, setRandomProducts] = useState<
     Omit<Product, "description" | "category">[]
   >([]);
@@ -31,7 +31,7 @@ const Cart: React.FC = () => {
     <div className="container my-4">
       <h2 className="text-center text-md-start">Carrinho de Compras</h2>
       {cart.length === 0 ? (
-        <p>Seu carrinho está vazio.</p>
+        <p className="text-center text-md-start">Seu carrinho está vazio.</p>
       ) : (
         <>
           <div className="list-group mb-4">
@@ -133,7 +133,7 @@ const Cart: React.FC = () => {
 
                         <div className="mt-auto">
                           <p className="card-text">R$ {product.price}</p>
-                          <button className="btn btn-primary w-100">
+                          <button className="btn btn-primary w-100" onClick={() => addToCart(product)}>
                             Adicionar ao Carrinho
                           </button>
                         </div>
