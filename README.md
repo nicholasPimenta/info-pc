@@ -52,7 +52,7 @@ Para rodar o projeto localmente, siga os passos abaixo:
 
 ## 🌐 Deploy
 O projeto está hospedado na **Vercel** e pode ser acessado através do seguinte link:
-[🔗 Loja de Informática - Deploy](https://info-pc.vercel.app)
+[🔗 Loja de Informática - Deploy](https://landing-baseus.vercel.app/)
 
 ## 📜 Licença
 Este projeto foi desenvolvido para fins de aprendizado e portfólio. Sinta-se à vontade para explorar o código e adaptá-lo conforme necessário.
